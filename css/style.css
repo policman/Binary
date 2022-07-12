@@ -310,7 +310,7 @@ body {
 
 .home {
   padding: 130px 0px 130px 0px;
-  background: url(./img/home/background.png) 0 0/auto 100% no-repeat;
+  background: url(../img/home/background.png) 0 0/auto 100% no-repeat;
   background-position: top;
 }
 
