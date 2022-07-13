@@ -2,6 +2,7 @@
 @import '_nullstyle';
 body {
 	font-family: Lato;
+	background-color: #3c3c3c;
 }
 // container for all blocks
 .container {
@@ -97,7 +98,6 @@ body {
 	width: 45%;
 	input {
 		font-size: 16px;
-		margin: 17px 0px 75px 0px;
 		padding: 0px 10px;
 		width: 100%;
 		height: 35px;
@@ -117,12 +117,12 @@ body {
 .form-areasend {
 	textarea {
 		font-size: 16px;
-		margin: 17px 0px 0px 0px;
+		margin: 10px 0px 0px 0px;
 		padding: 10px;
 		max-width: 100%;
 		min-width: 100%;
-		max-height: 120px;
-		min-height: 120px;
+		max-height: 110px;
+		min-height: 110px;
 		background-color: #f8f7f7;
 		border-top: 0.5px solid black;
 		transition: box-shadow 200ms ease;
@@ -165,6 +165,24 @@ body {
 	}
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // =========== BLOCK HOME ===========
 .home {
 	padding: 130px 0px 130px 0px;
@@ -176,7 +194,8 @@ body {
 	@media (max-width: 460px) {
 		padding: 70px 0px 50px 0px;
 	}
-	&__logo {
+	&__logo {	
+		transform: translate(0px, -40px);
 		max-width: 195px;
 		height: 123px;
 		margin: 0px auto;
@@ -205,6 +224,18 @@ body {
 		letter-spacing: 0.16em;
 		color: #ffffff;
 		margin-bottom: 10px;
+
+		animation-name: translator-title;
+		animation-duration: 1s;
+		@keyframes translator-title {
+			from { 
+				transform: scale(1.5);
+			}
+			to { 
+				transform: scale(1);
+			}
+		}
+
 		@media (max-width: 992px) {
 			font-size: 30px;
 		}
@@ -215,7 +246,7 @@ body {
 			font-size: 24px;
 		}
 	}
-	&__text {
+	&__subTitle {
 		text-align: center;
 		font-size: 26px;
 		font-weight: 400;
@@ -225,6 +256,23 @@ body {
 		padding: 0px 0px 45px 0px;
 		position: relative;
 		margin: 0px 0px 230px 0px;
+
+		animation-name: translator-subTitle;
+		animation-duration: 1.5s;
+		animation-delay: 1.5s;
+		@keyframes translator-subTitle {
+			from { 
+				transform: translate(0, -40px); 
+				opacity: 0;
+			}
+			25% {
+				opacity: 0;
+			}
+			to { 
+				transform: translate(0, 0);
+				opacity: 1;
+			}
+		}
 		&:after {
 			content: '';
 			max-width: 100px;
@@ -235,6 +283,7 @@ body {
 			left: 50%;
 			margin: 0px 0px 0px -50px;
 		}
+
 		@media (max-width: 992px) {
 			font-size: 22px;
 			margin: 0px 0px 200px 0px;
@@ -277,6 +326,14 @@ body {
 		img {
 			max-width: 20px;
 			height: 12px;
+			animation-duration: 1s;
+			animation-name: arrowMove;
+			animation-delay: 0.5s;
+			@keyframes arrowMove {
+				from { transform: translate(0px, 0px); }
+				50% { transform: translate(0px, 10px); }
+				to { transform: translate(0px, 0px); }
+			}
 		}
 	}
 }
@@ -286,7 +343,7 @@ body {
 .menu {
 	height: 58px;
 	background-color: #ffffff;
-	box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.05);
+	border-bottom: 1px solid #60606011;
 	@media (max-width: 390px) {
 		height: 0;
 	}
@@ -294,9 +351,7 @@ body {
 		width: 100%;
 		display: flex;
 		justify-content: space-between;
-		@media (max-width: 460px) {
-			justify-content: space-between;
-		}
+
 		@media (max-width: 390px) {
 			display: none;
 		}
@@ -311,19 +366,20 @@ body {
 
 // =========== BLOCK ABOUT ===========
 .about {
+	background-color: white;
 	&__body {
 		max-width: 830px;
 		margin: 0px auto;
-		padding: 60px 0px 60px 0px;
+		padding: 150px 0px 150px 0px;
 	}
 	&__title {
-		margin-bottom: 30px;
+		margin-bottom: 40px;
 	}
 	&__text {
 		max-width: 700px;
 		margin: 0px auto;
 		text-align: center;
-		margin-bottom: 70px;
+		margin-bottom: 100px;
 	}
 	&__row {
 		display: flex;
@@ -361,9 +417,9 @@ body {
 // =========== BLOCK PORTFOLIO ===========
 .portfolio {
 	background-color: #f3f3f3;
-	padding: 60px 0px 60px 0px;
+	padding: 150px 0px 150px 0px;
 	&__title {
-		padding-bottom: 15px;
+		padding-bottom: 40px;
 	}
 	&__navigation {
 		background-color: #f3f3f3;
@@ -380,8 +436,8 @@ body {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		grid-auto-flow: row;
-		gap: 10px;
-		margin-bottom: 52px;
+		gap: 20px;
+		margin-bottom: 100px;
 		@media (max-width: 460px) {
 			grid-template-columns: 1fr;
 		}
@@ -416,6 +472,7 @@ body {
 
 // =========== BLOCK PORTFOLIO ===========
 .partners {
+	
 	height: auto;
 	background-image: url(../img/partners/background.jpg);
 	background-position: bottom;
@@ -450,11 +507,11 @@ body {
 	&__company {
 		display: flex;
 		justify-content: center;
-		@media (max-width: 400px) {
+		@media (max-width: 450px) {
 			transform: scale(0.8);
 		}
 		@media (max-width: 350px) {
-			transform: scale(0.7);
+			transform: scale(0.6);
 		}
 	}
 	& a {
@@ -469,7 +526,8 @@ body {
 
 // =========== BLOCK CONTACT ===========
 .contact {
-	padding: 50px 0px 50px 0px;
+	background-color: white;
+	padding: 150px 0px 150px 0px;
 	@media (max-width: 450px) {
 		padding: 40px 0px 50px 0px;
 	}
@@ -500,13 +558,16 @@ body {
 		color: #000000;
 		@media (max-width: 450px) {
 			width: 90%;
-			margin: 0px 0px 40px 0px;
+			margin: 0px 0px 50px 0px;
 		}
 	}
 	&__name-email {
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
+		& input {
+			margin: 10px 0px 30px 0px;
+		}
 		@media (max-width: 750px) {
 			flex-direction: column;
 			margin-bottom: 20px;
@@ -515,6 +576,9 @@ body {
 	//RIGHT SIDE
 	&__rightside {
 		width: 45%;
+		@media (max-width: 750px) {
+			padding: 35px 0 0 0;
+		}
 		@media (max-width: 450px) {
 			width: 90%;
 		}
