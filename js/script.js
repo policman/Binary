@@ -22,4 +22,3 @@ document.addEventListener('click', function(event) { // отслеживаем "
 	if(event.target.closest('.textArea')) textCounter.classList.add('_active'); // если клик был по полю - делаем счётчик видимым
 	if(!event.target.closest('.textArea')) textCounter.classList.remove('_active'); // если клик был вне поля - прячем
 });
-
