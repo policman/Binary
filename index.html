@@ -13,7 +13,7 @@
 	<body>
 		<div class="wrapper">
 			<!-- Home page block -->
-			<header class="home">
+			<header class="home section" id="section-1">
 				<!-- Content on home page -->
 				<div class="container">
 					<!-- Logo block -->
@@ -40,16 +40,16 @@
 					<!-- Menu's content -->
 					<ul class="menu__body">
 						<!-- Menu's buttons -->
-						<li class="menu__item navigation-item"><a class='button' href="#">Home</a></li>
-						<li class="menu__item navigation-item"><a class='button' href="#about-id">About us</a></li>
-						<li class="menu__item navigation-item"><a class='button' href="#portfolio-id">Portfolio</a></li>
-						<li class="menu__item navigation-item"><a class='button' href="#contact-id">Contact</a></li>
+						<li class="menu__item navigation-item"><a class='menu__link' href="#section-1">Home</a></li>
+						<li class="menu__item navigation-item"><a class='menu__link' href="#section-2">About us</a></li>
+						<li class="menu__item navigation-item"><a class='menu__link' href="#section-3">Portfolio</a></li>
+						<li class="menu__item navigation-item"><a class='menu__link' href="#section-4">Contact</a></li>
 					</ul>
 				</div>
 			</nav>
 
 			<!-- About block -->
-			<div class="about" id='about-id'> 
+			<div class="about section" id='section-2'> 
 				<div class="container">
 					<!-- About's content -->
 					<div class="about__body">
@@ -95,7 +95,7 @@
 			</div>
 
 			<!-- Portfolio block -->
-			<div class="portfolio"  id='portfolio-id'>
+			<div class="portfolio section" id='section-3'>
 				<!-- Portfolio's conteiner -->
 				<div class="container">
 					<!-- Header "Portfolio" -->
@@ -106,13 +106,13 @@
 					<!-- Menu in Portfolio -->
 					<div class="portfolio__navigation navigation">
 						<!-- All projects -->
-						<div class="portfolio__elements navigation-item"><a class='button' href="#" ">All</a></div>
+						<div class="portfolio__elements navigation-item"><a class='navigation-item__link' href="#" ">All</a></div>
 						<!-- Web projects -->
-						<div class="portfolio__elements navigation-item"><a class='button' href="#" ">Web</a></div>
+						<div class="portfolio__elements navigation-item"><a class='navigation-item__link' href="#" ">Web</a></div>
 						<!-- Apps projects -->
-						<div class="portfolio__elements navigation-item"><a class='button' href="#" ">Apps</a></div>
+						<div class="portfolio__elements navigation-item"><a class='navigation-item__link' href="#" ">Apps</a></div>
 						<!-- Other projects -->
-						<div class="portfolio__elements navigation-item"><a class='button' href="#" ">Other</a></div>
+						<div class="portfolio__elements navigation-item"><a class='navigation-item__link' href="#" ">Other</a></div>
 					</div>
 					<!-- Block with images -->
 					<ul class="portfolio__images">
@@ -120,9 +120,6 @@
 						<li class="portfolio__image"><img src="img/portfolio/2.jpg" alt=""></li>
 						<li class="portfolio__image"><img src="img/portfolio/3.jpg" alt=""></li>
 						<li class="portfolio__image"><img src="img/portfolio/4.webp" alt=""></li>
-						<li class="portfolio__image"><img src="img/portfolio/5.jpg" alt=""></li>
-						<li class="portfolio__image"><img src="img/portfolio/6.jpg" alt=""></li>
-						<li class="portfolio__image"><img src="img/portfolio/1.jpg" alt=""></li>
 					</ul>
 					<!-- Portfolio button "Read More" -->
 					<div class="portfolio__container-readmore container-readmore"><a href="#" class="portfolio__readmore readmore">Read more</a></div>
@@ -131,7 +128,7 @@
 			</div>
 
 			<!-- Partners block -->
-			<div class="partners" id='partners-id'>
+			<div class="partners">
 				<!-- Partners content -->
 				<div class="container">
 					<!-- Header Partners -->
@@ -147,7 +144,7 @@
 			</div>
 			
 			<!-- Contact block -->
-			<div class="contact" id='contact-id'>
+			<div class="contact section" id='section-4'>
 				<!-- Contact content -->
 				<div class="container">
 					<!-- Header "Contact" -->
@@ -184,7 +181,7 @@
 								</div>
 								<!-- Button "SEND" -->
 								<div class="send-button">
-									<input class="button" type="submit" value="Send">
+									<input class="send-button__button" type="submit" value="Send">
 								</div>
 							</form>
 						</div>

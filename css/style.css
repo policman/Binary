@@ -94,7 +94,7 @@ h6 {
 body {
   height: 100%;
   font-family: Lato;
-  background-color: #3c3c3c;
+  background-color: #ffffff;
 }
 
 .wrapper {
@@ -223,7 +223,7 @@ body {
   font-weight: 700;
 }
 
-.navigation-item a {
+.navigation-item__link {
   display: inline-block;
   color: #606060;
   -webkit-transition: color 1s ease, -webkit-transform 250ms ease;
@@ -233,7 +233,7 @@ body {
   transition: color 1s ease, transform 250ms ease, -webkit-transform 250ms ease;
 }
 
-.navigation-item a:hover {
+.navigation-item__link:hover {
   -webkit-transition: color 250ms ease, -webkit-transform 250ms ease;
   transition: color 250ms ease, -webkit-transform 250ms ease;
   -o-transition: color 250ms ease, transform 250ms ease;
@@ -322,7 +322,8 @@ body {
   bottom: 0px;
 }
 
-.send-button input {
+.send-button__button {
+  cursor: pointer;
   font-size: 14px;
   line-height: 1.2;
   font-weight: 700;
@@ -335,14 +336,15 @@ body {
   transition: color 150ms ease;
 }
 
-.send-button input:hover {
+.send-button__button:hover {
   color: #c49f3a;
 }
 
 .home {
   min-height: 100vh;
-  padding: 150px 0px 130px 0px;
-  background: url(../img/home/background.png) 0 0/auto 100% no-repeat;
+  width: 100%;
+  padding: 15vh 0px 15vh 0px;
+  background: url(../img/home/background.png) 0 0/auto 110% no-repeat;
   background-position: top;
   -webkit-animation-name: background-brightness;
           animation-name: background-brightness;
@@ -372,18 +374,6 @@ body {
   }
 }
 
-@media (max-width: 767px) {
-  .home {
-    padding: 90px 0px 50px 0px;
-  }
-}
-
-@media (max-width: 460px) {
-  .home {
-    padding: 80px 0px 50px 0px;
-  }
-}
-
 .home__logo {
   -webkit-transform: translate(0px, -40px);
       -ms-transform: translate(0px, -40px);
@@ -391,22 +381,21 @@ body {
   max-width: 195px;
   height: 123px;
   margin: 0px auto;
-  margin-bottom: 150px;
+  margin-bottom: 10vh;
   -webkit-animation-name: opacity-logo;
           animation-name: opacity-logo;
   -webkit-animation-duration: 2s;
           animation-duration: 2s;
 }
 
-@media (max-width: 767px) {
+@media (max-height: 1000px) {
   .home__logo {
-    margin-bottom: 100px;
+    margin-bottom: 5vh;
   }
 }
 
 @media (max-width: 460px) {
   .home__logo {
-    margin-bottom: 80px;
     max-width: 160px;
     height: auto;
     display: -webkit-box;
@@ -448,7 +437,7 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.16em;
   color: #ffffff;
-  margin-bottom: 10px;
+  margin-bottom: 1vh;
   -webkit-animation-name: translator-title;
           animation-name: translator-title;
   -webkit-animation-duration: 3s;
@@ -564,25 +553,19 @@ body {
 }
 
 .home__line-container {
-  margin-bottom: 20%;
+  margin-bottom: 25vh;
   height: 2px;
 }
 
-@media (max-width: 992px) {
+@media (max-height: 910px) {
   .home__line-container {
-    margin: 0px 0px 200px 0px;
+    margin-bottom: 20vh;
   }
 }
 
-@media (max-width: 767px) {
+@media (max-height: 780px) {
   .home__line-container {
-    margin: 0px 0px 180px 0px;
-  }
-}
-
-@media (max-width: 460px) {
-  .home__line-container {
-    margin: 0px 0px 80px 0px;
+    margin-bottom: 15vh;
   }
 }
 
@@ -783,9 +766,15 @@ body {
 }
 
 .menu {
-  height: 58px;
-  background-color: #ffffff;
-  border-bottom: 1px solid #60606011;
+  padding: 10px;
+  min-height: 58px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: #fffffff8;
+  -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.285);
+          box-shadow: 0 0 2px rgba(0, 0, 0, 0.285);
 }
 
 .menu__body {
@@ -796,6 +785,9 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .menu__item {
@@ -807,6 +799,34 @@ body {
     font-size: 14px;
     margin: 0px 10px;
   }
+}
+
+.menu__link {
+  display: inline-block;
+  color: #606060;
+  -webkit-transition: color 0.3s ease;
+  -o-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
+
+.menu__link:hover {
+  -webkit-transition: color 250ms ease, border-bottom 250ms ease;
+  -o-transition: color 250ms ease, border-bottom 250ms ease;
+  transition: color 250ms ease, border-bottom 250ms ease;
+  border-bottom: 2px solid #606060;
+}
+
+.menu__link--active {
+  z-index: 2;
+  color: #c49f3a;
+  -webkit-transition: border-bottom 250ms ease;
+  -o-transition: border-bottom 250ms ease;
+  transition: border-bottom 250ms ease;
+  border-bottom: 2px solid  #c49f3a;
+}
+
+.menu__link--active:hover {
+  border-bottom: 2px solid  #c49f3a;
 }
 
 .about {
@@ -937,6 +957,7 @@ body {
 }
 
 .portfolio__image {
+  cursor: pointer;
   -webkit-transform: scale(1, 1);
       -ms-transform: scale(1, 1);
           transform: scale(1, 1);

@@ -21,4 +21,36 @@ const textCounter = document.querySelector('.txtCounter') // получаем с
 document.addEventListener('click', function(event) { // отслеживаем "клик" по всему документу
 	if(event.target.closest('.textArea')) textCounter.classList.add('_active'); // если клик был по полю - делаем счётчик видимым
 	if(!event.target.closest('.textArea')) textCounter.classList.remove('_active'); // если клик был вне поля - прячем
+}); //сделать класс актив как модификатор текс ареа!!!
+
+// отображаемый в данный момент раздел сайта (подсвечивается в меню)
+// здесь я использую API Intersection Observer
+const observer = new IntersectionObserver((entries) => {
+	entries.forEach((entry) => {
+		if(entry.isIntersecting) {
+			document.querySelectorAll('.menu__link').forEach((link) => {
+				link.classList.toggle(
+					'menu__link--active', 
+					link.getAttribute("href").replace('#', '') === entry.target.id);
+			})
+		}
+	});
+}, {
+	threshold: 0.7,
+});
+
+document.querySelectorAll('.section').forEach((section) => {
+	observer.observe(section);
+});
+
+document.querySelector('.menu__body').addEventListener('click', (event) => {
+	if(event.target.closest('.menu__link')) {
+		event.preventDefault();
+		const id = event.target.getAttribute('href').replace('#', '');
+
+		window.scrollTo({
+			top: document.getElementById(id).offsetTop,
+			behavior: 'smooth',
+		});
+	}
 });
