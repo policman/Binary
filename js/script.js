@@ -84,3 +84,57 @@ document.querySelector('.home__readmore').addEventListener('click', (event) => {
 		behavior: 'smooth',
 	});
 })
+
+// popupы картинок, "Read More" в блоке портфолио и логотипы партнёров
+// принцип их работы - есть ОДНА конструкция попапа, и в зависимости на какой блок
+// открывающий попап нажал пользователь, будет открыта эта конструкция с наполнением из JS для конкретного блока
+// 		Почему я сделал так: возможно если бы я просто сверстал каждый отдельный попап в html они работали бы
+// на доли-секунды быстрее и проще бы было локализовать под разные языки, но я специально решил реализовать их
+// с помощью JS, чтобы лишний раз с ним попрактиковаться.
+document.querySelector('body').addEventListener('click', (event) => {
+	const popup = document.querySelector('.popup');
+	const imageElement = document.querySelector('.popup__image');
+	const headerElement = document.querySelector('.popup__header');
+	const textElement = document.querySelector('.popup__text');
+
+	function loadData(headerText, text, source) {
+		// load image
+		if(source) {
+			imageElement.src = source;
+			imageElement.classList.remove('popup__image--disable');
+		}
+		// load header
+		if(headerText) {
+		headerElement.textContent = headerText;
+		}
+		// load text
+		if(text) {
+		textElement.textContent = text;
+		}
+		// activate popup
+		document.body.style.overflow = 'hidden';
+		popup.classList.add('activePopup');
+	}
+	if(event.target.closest('.popup-image-1')) {
+		loadData('Project number 1', "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint eaque optio voluptate nisi perspiciatis ratione quod incidunt et quam corrupti reiciendis fugit, tenetur, excepturi magni asperiores quae ex, mollitia error ipsum aperiam quos deleniti vitae delectus voluptates? Molestias harum ratione laborum veritatis et placeat quidem, enim ullam sint quo nisi quasi esse possimus deserunt in voluptatem consequatur asperiores itaque? Dicta recusandae facere nam sed facilis tempore ullam enim officia impedit? About our projects, Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint eaque optio voluptate nisi perspiciatis ratione quod incidunt et quam corrupti reiciendis fugit, tenetur, excepturi magni asperiores quae ex, mollitia error ipsum aperiam quos deleniti vitae delectus voluptates? Molestias harum ratione laborum veritatis et placeat quidem, enim ullam sint quo nisi quasi esse possimus deserunt in voluptatem consequatur asperiores itaque?", "img/portfolio/1.jpg");
+	}
+	else if(event.target.closest('.popup-image-2')) {
+		loadData('Project number 2', "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint eaque optio voluptate nisi perspiciatis ratione quod incidunt et quam corrupti reiciendis fugit, tenetur, excepturi magni asperiores quae ex, mollitia error ipsum aperiam quos deleniti vitae delectus voluptates? Molestias harum ratione laborum veritatis et placeat quidem, enim ullam sint quo nisi quasi esse possimus deserunt in voluptatem consequatur asperiores itaque? Dicta recusandae facere nam sed facilis tempore ullam enim officia impedit? About our projects, Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint eaque optio voluptate nisi perspiciatis ratione quod incidunt et quam corrupti reiciendis fugit, tenetur, excepturi magni asperiores quae ex, mollitia error ipsum aperiam quos deleniti vitae delectus voluptates? Molestias harum ratione laborum veritatis et placeat quidem, enim ullam sint quo nisi quasi esse possimus deserunt in voluptatem consequatur asperiores itaque?", "img/portfolio/2.jpg");
+	}
+	else if(event.target.closest('.popup-image-3')) {
+		loadData('Project number 3', "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint eaque optio voluptate nisi perspiciatis ratione quod incidunt et quam corrupti reiciendis fugit, tenetur, excepturi magni asperiores quae ex, mollitia error ipsum aperiam quos deleniti vitae delectus voluptates? Molestias harum ratione laborum veritatis et placeat quidem, enim ullam sint quo nisi quasi esse possimus deserunt in voluptatem consequatur asperiores itaque? Dicta recusandae facere nam sed facilis tempore ullam enim officia impedit? About our projects, Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint eaque optio voluptate nisi perspiciatis ratione quod incidunt et quam corrupti reiciendis fugit, tenetur, excepturi magni asperiores quae ex, mollitia error ipsum aperiam quos deleniti vitae delectus voluptates? Molestias harum ratione laborum veritatis et placeat quidem, enim ullam sint quo nisi quasi esse possimus deserunt in voluptatem consequatur asperiores itaque?", "img/portfolio/2.jpg");
+	}
+	else if(event.target.closest('.popup-image-4')) {
+		loadData('Project number 4', "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint eaque optio voluptate nisi perspiciatis ratione quod incidunt et quam corrupti reiciendis fugit, tenetur, excepturi magni asperiores quae ex, mollitia error ipsum aperiam quos deleniti vitae delectus voluptates? Molestias harum ratione laborum veritatis et placeat quidem, enim ullam sint quo nisi quasi esse possimus deserunt in voluptatem consequatur asperiores itaque? Dicta recusandae facere nam sed facilis tempore ullam enim officia impedit? About our projects, Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint eaque optio voluptate nisi perspiciatis ratione quod incidunt et quam corrupti reiciendis fugit, tenetur, excepturi magni asperiores quae ex, mollitia error ipsum aperiam quos deleniti vitae delectus voluptates? Molestias harum ratione laborum veritatis et placeat quidem, enim ullam sint quo nisi quasi esse possimus deserunt in voluptatem consequatur asperiores itaque?", "img/portfolio/4.webp");
+	}
+	else if(event.target.closest('.portfolio__readmore')) {
+		event.preventDefault();
+		imageElement.classList.add('popup__image--disable');
+		loadData('About our projects', 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint eaque optio voluptate nisi perspiciatis ratione quod incidunt et quam corrupti reiciendis fugit, tenetur, excepturi magni asperiores quae ex, mollitia error ipsum aperiam quos deleniti vitae delectus voluptates? Molestias harum ratione laborum veritatis et placeat quidem, enim ullam sint quo nisi quasi esse possimus deserunt in voluptatem consequatur asperiores itaque? Dicta recusandae facere nam sed facilis tempore ullam enim officia impedit? About our projects, Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint eaque optio voluptate nisi perspiciatis ratione quod incidunt et quam corrupti reiciendis fugit, tenetur, excepturi magni asperiores quae ex, mollitia error ipsum aperiam quos deleniti vitae delectus voluptates? Molestias harum ratione laborum veritatis et placeat quidem, enim ullam sint quo nisi quasi esse possimus deserunt in voluptatem consequatur asperiores itaque? Dicta recusandae facere nam sed facilis tempore ullam enim officia impedit? About our projects, Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint eaque optio voluptate nisi perspiciatis ratione quod incidunt et quam corrupti reiciendis fugit, tenetur, excepturi magni asperiores quae ex, mollitia error ipsum aperiam quos deleniti vitae delectus voluptates? Molestias harum ratione laborum veritatis et placeat quidem, enim ullam sint quo nisi quasi esse possimus deserunt in voluptatem consequatur asperiores itaque? Dicta recusandae facere nam sed facilis tempore ullam enim officia impedit? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint eaque optio voluptate nisi perspiciatis ratione quod incidunt et quam corrupti reiciendis fugit, tenetur, excepturi magni asperiores quae ex, mollitia error ipsum aperiam quos deleniti vitae delectus voluptates? Molestias harum ratione laborum veritatis et placeat quidem, enim ullam sint quo nisi quasi esse possimus deserunt in voluptatem consequatur asperiores itaque? Dicta recusandae facere nam sed facilis tempore ullam enim officia impedit? About our projects, Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint eaque optio voluptate nisi perspiciatis ratione quod incidunt et quam corrupti reiciendis fugit, tenetur, excepturi magni asperiores quae ex, mollitia error ipsum aperiam quos deleniti vitae delectus voluptates? Molestias harum ratione laborum veritatis et placeat quidem, enim ullam sint quo nisi quasi esse possimus deserunt in voluptatem consequatur asperiores itaque? Dicta recusandae facere nam sed facilis tempore ullam enim officia impedit? About our projects, Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint eaque optio voluptate nisi perspiciatis ratione quod incidunt et quam corrupti reiciendis fugit, tenetur, excepturi magni asperiores quae ex, mollitia error ipsum aperiam quos deleniti vitae delectus voluptates? Molestias harum ratione laborum veritatis et placeat quidem, enim ullam sint quo nisi quasi esse possimus deserunt in voluptatem consequatur asperiores itaque? Dicta recusandae facere nam sed facilis tempore ullam enim officia impedit? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint eaque optio voluptate nisi perspiciatis ratione quod incidunt et quam corrupti reiciendis fugit, tenetur, excepturi magni asperiores quae ex, mollitia error ipsum aperiam quos deleniti vitae delectus voluptates? Molestias harum ratione laborum veritatis et placeat quidem, enim ullam sint quo nisi quasi esse possimus deserunt in voluptatem consequatur asperiores itaque? Dicta recusandae facere nam sed facilis tempore ullam enim officia impedit? About our projects, Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint eaque optio voluptate nisi perspiciatis ratione quod incidunt et quam corrupti reiciendis fugit, tenetur, excepturi magni asperiores quae ex, mollitia error ipsum aperiam quos deleniti vitae delectus voluptates? Molestias harum ratione laborum veritatis et placeat quidem, enim ullam sint quo nisi quasi esse possimus deserunt in voluptatem consequatur asperiores itaque? Dicta recusandae facere nam sed facilis tempore ullam enim officia impedit? About our projects, Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint eaque optio voluptate nisi perspiciatis ratione quod incidunt et quam corrupti reiciendis fugit, tenetur, excepturi magni asperiores quae ex, mollitia error ipsum aperiam quos deleniti vitae delectus voluptates? Molestias harum ratione laborum veritatis et placeat quidem, enim ullam sint quo nisi quasi esse possimus deserunt in voluptatem consequatur asperiores itaque? Dicta recusandae facere nam sed facilis tempore ullam enim officia impedit?');
+	}
+	else if(!event.target.closest('.popup__wrapper')) {
+		document.body.style.overflow = 'visible';
+		popup.classList.remove('activePopup');
+	}
+	
+});
