@@ -256,16 +256,16 @@ body {
   height: 35px;
   background-color: #f8f7f7;
   border-top: 0.5px solid black;
-  -webkit-transition: -webkit-box-shadow 200ms ease;
-  transition: -webkit-box-shadow 200ms ease;
-  -o-transition: box-shadow 200ms ease;
-  transition: box-shadow 200ms ease;
-  transition: box-shadow 200ms ease, -webkit-box-shadow 200ms ease;
+  -webkit-transition: border 100ms ease;
+  -o-transition: border 100ms ease;
+  transition: border 100ms ease;
 }
 
 .form-send input:focus {
-  -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.516);
-          box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.516);
+  border-top: 1.5px solid #c49f3a;
+  -webkit-transition: border 100ms ease;
+  -o-transition: border 100ms ease;
+  transition: border 100ms ease;
 }
 
 @media (max-width: 750px) {
@@ -286,16 +286,13 @@ body {
   min-height: 110px;
   background-color: #f8f7f7;
   border-top: 0.5px solid black;
-  -webkit-transition: -webkit-box-shadow 200ms ease;
-  transition: -webkit-box-shadow 200ms ease;
-  -o-transition: box-shadow 200ms ease;
-  transition: box-shadow 200ms ease;
-  transition: box-shadow 200ms ease, -webkit-box-shadow 200ms ease;
+  -webkit-transition: border 100ms ease;
+  -o-transition: border 100ms ease;
+  transition: border 100ms ease;
 }
 
 .form-areasend textarea:focus {
-  -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.516);
-          box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.516);
+  border-top: 1.5px solid #c49f3a;
 }
 
 .counterHolder {
@@ -310,9 +307,14 @@ body {
   font-size: 14px;
   font-weight: 300;
   text-transform: none;
+  opacity: 0;
+  -webkit-transition: opacity 200ms ease;
+  -o-transition: opacity 200ms ease;
+  transition: opacity 200ms ease;
 }
 
-._active {
+.txtCounter--active {
+  opacity: 0.9;
   display: block;
 }
 
@@ -766,7 +768,7 @@ body {
 }
 
 .menu {
-  padding: 10px;
+  padding: 10px 0px 10px 0px;
   min-height: 58px;
   position: -webkit-sticky;
   position: sticky;
@@ -798,6 +800,12 @@ body {
   .menu__item {
     font-size: 14px;
     margin: 0px 10px;
+  }
+}
+
+@media (max-width: 370px) {
+  .menu__item {
+    font-size: 13px;
   }
 }
 
@@ -1216,6 +1224,13 @@ body {
 
 .contact__link:hover {
   border-color: #c49f3a;
+}
+
+.active-label {
+  -webkit-transition: all 200ms ease;
+  -o-transition: all 200ms ease;
+  transition: all 200ms ease;
+  color: #c49f3a;
 }
 
 .footer {
